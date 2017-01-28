@@ -23,7 +23,7 @@ def view_all(request):
     
 def fetch_data(request):
 	if request.method == 'POST':
-		journey=request.POST['yolo']
+		journey = request.POST['train']
 		for items in Tickets.objects.filter(journey_id=journey):
 			print items
 			source = items.location_from
@@ -31,6 +31,11 @@ def fetch_data(request):
 			couriers={'courier': Courier.objects.filter(location_from=source,location_to=destination)}
 			print couriers
 			return render(request,'tickets/print_courier.html',context=couriers)
+
+def fetch_couriers(request):
+	if request.method == 'POST':
+		checked = request.POST.getlist('cpackage')
+		print checked
 
 # def about(request):
 # 	# if this is a POST request we need to process the form data
