@@ -1,0 +1,27 @@
+<table id="example" class="display nowrap" cellspacing="10" width="100%">
+        <thead>
+            <tr>
+
+                <th>weight</th>
+                <th>height</th>
+                <th>width</th>
+                <th>length</th>
+                
+            </tr>
+        </thead>
+	<tbody>	  
+			
+				
+			{% for courier in courier %}
+				<tr>
+				 	<td>         {{courier.weight}} </td>
+					<td>		 {{courier.height}} </td>
+					<td> 		 {{courier.width}} </td>
+					<td>		 {{courier.length}} </td>
+				</tr>
+				
+			{% endfor %}
+	</tbody>
+	</table>
+    
+    

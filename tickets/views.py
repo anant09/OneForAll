@@ -5,7 +5,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from .models import Tickets
+from courier.models import *
+from .models import *
 from models import User
 import json
 from django.http import JsonResponse
@@ -22,7 +23,14 @@ def view_all(request):
     
 def fetch_data(request):
 	if request.method == 'POST':
-		print "post entered" 
+		journey=request.POST['yolo']
+		for items in Tickets.objects.filter(journey_id=journey):
+			print items
+			source = items.location_from
+			destination = items.location_to
+			couriers={'courier': Courier.objects.filter(location_from=source,location_to=destination)}
+			print couriers
+			return render(request,'tickets/print_courier.html',context=couriers)
 
 # def about(request):
 # 	# if this is a POST request we need to process the form data
