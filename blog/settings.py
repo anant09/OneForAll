@@ -38,8 +38,9 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
-	'step2',
+	'courier',
 	'login',
+    'tickets',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hello',
+        'NAME': 'oneforall',
         'USER': 'root',
         'PASSWORD': 'aloha',
         'HOST': 'localhost',

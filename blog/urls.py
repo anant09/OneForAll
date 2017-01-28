@@ -19,8 +19,9 @@ from django.contrib import admin
 from login.views import *
 from login import views
 from django.conf.urls import include
-from step2 import views
-from step2 import urls as step2_urls
+from courier import views
+from courier import urls as courier_urls
+from tickets import urls as tickets_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,8 +31,9 @@ urlpatterns = [
     url(r'^register/success/$', register_success),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', logout_page),
-	# url(r'^step2/about/$', views.about, name='about'),
-    # url(r'^step2/request_made/$', views.req_made, name='req_made'),
-    url(r'^step2/', include(step2_urls)),
+	# url(r'^courier/about/$', views.about, name='about'),
+    # url(r'^courier/request_made/$', views.req_made, name='req_made'),
+    url(r'^courier/', include(courier_urls)),
+    url(r'^tickets/', include(tickets_urls)),
     
 ]

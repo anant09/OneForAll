@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import login_required
     
 def req_made(request):
     context_dict={'boldmessage': Courier.objects.all() }
-    return render(request,'step2/request_made.html',context=context_dict)
+    return render(request,'courier/request_made.html',context=context_dict)
     
     
 def about(request):
@@ -38,7 +38,7 @@ def about(request):
 
         send_mail(subject,message,from_email,to_list,fail_silently = True)
         q.save()
-        return HttpResponseRedirect('/step2/request_made/')
+        return HttpResponseRedirect('/courier/request_made/')
         # else:
             # print "errors",form.errors
             
@@ -47,7 +47,7 @@ def about(request):
         # form = NameForm()
         user = request.user
 
-    return render(request, 'step2/welcome.html', {'user':request.user})
+    return render(request, 'courier/welcome.html', {'user':request.user})
 
 @login_required
 def view_courier(request, loc_from,loc_to):

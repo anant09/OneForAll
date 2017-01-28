@@ -1,0 +1,54 @@
+
+{% block content %}
+
+        
+	<table>
+        <thead>
+            <tr>
+                <th>Train PNR</th>
+                <th>Train number</th>
+                <th>Date of travel</th>
+                <th>Price</th>
+                <th>Train number </th>
+                <th>Delivery From</th>
+                <th>Destination(meters)</th>
+                <th>Confirm train number</th>
+
+                
+            </tr>
+        </thead>
+	<tbody>	  
+			
+				
+			{% for ticket in boldmessage %}
+				<tr>
+					<form action="/tickets/fetch_data/" method="POST">{% csrf_token %}
+				 	<td>         {{ticket.journey_id}} </td>
+					<td>		 {{ticket.train_no}} </td>
+					<td> 		 {{ticket.date}} </td>
+					<td>		 {{ticket.price}} </td>
+					<td>		 {{ticket.train_name}} </td>
+					<td>		 {{ticket.location_from}} </td>
+					<td>		 {{ticket.location_to}} </td>
+					<td> 		 {{ticket.user}}   		</td>
+							 						
+				</tr>
+				
+			{% endfor %}
+
+			<input type="text" placeholder="Journey Id" name="yolo" > 
+       
+       		<button type="submit"  value="submit" id="add-button">Make Request</button>	
+       
+	</tbody>
+	</table>
+    
+    
+    
+ <br/>
+<br/>
+
+        
+    
+    <button type="button" onclick="window.location.href='/home/' ">Back</button>
+{% endblock %}
