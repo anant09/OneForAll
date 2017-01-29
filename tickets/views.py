@@ -63,7 +63,7 @@ def delete_courier(request):
         checked = request.POST.getlist('cpackage')
         for items in checked:
             Tracker.objects.filter(courier_details=items).delete()
-        return HttpResponseRedirect('/home  ')
+        return HttpResponseRedirect('/home')
     else:
         # dict={'courier':Tracker.objects.filter(user=request.user.username)}
         couriers=[]
