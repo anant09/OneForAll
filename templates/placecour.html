@@ -44,12 +44,12 @@
 		<br/><br/>
 		<div class="form-group">
 		  <label for="pwd" id="pwd">Address 2:</label>
-		  <input type="password" class="form" id="usr">
+		  <input type="text" class="form" id="usr">
 		</div>
 		<br/><br/>
 		<div class="form-group">
 		  <label for="pwd" id="pwd">Pincode:</label>
-		  <input type="password" class="form" id="usr">
+		  <input type="text" class="form" id="usr">
 		</div>
 	  </div>
       <br/><br/><br/><br/>
@@ -63,12 +63,12 @@
 		<br/><br/>
 		<div class="form-group">
 		  <label for="pwd2" id="pwd">Address 2:</label>
-		  <input type="password" class="form" id="usr2">
+		  <input type="text" class="form" id="usr2">
 		</div>
 		<br/><br/>
 		<div class="form-group">
 		  <label for="pwd" id="pwd2">Pincode:</label>
-		  <input type="password" class="form" id="usr2">
+		  <input type="text" class="form" id="usr2">
 		</div>
 	  </div>
 
@@ -76,30 +76,30 @@
           <h2 class="page-header">Service mode</h2>
           <div class="img">
             <a target="_blank" href="fjords.jpg">
-              <img src="{% static 'images/cheetah.jpg' %}" alt="Cheetah" width="300" height="200">
+              <img src="{% static 'images/flash.jpg' %}" alt="Cheetah" width="300" height="200">
+            </a>
+            <div class="desc">Within 2-4 days</div>
+          </div>
+
+          <div class="img">
+            <a target="_blank" href="forest.jpg">
+              <img src="{% static 'images/bugs.jpg' %}" alt="Rabbit" width="300" height="200">
             </a>
             <div class="desc">Within a week</div>
           </div>
 
           <div class="img">
-            <a target="_blank" href="forest.jpg">
-              <img src="{% static 'images/rabbit.jpg' %}" alt="Rabbit" width="300" height="200">
-            </a>
-            <div class="desc">Within 2-4 Weeks</div>
-          </div>
-
-          <div class="img">
             <a target="_blank" href="lights.jpg">
-              <img src="{% static 'images/from.jpg' %}" alt="Turtle" width="300" height="200">
+              <img src="{% static 'images/oogway.jpg' %}" alt="Turtle" width="300" height="200">
             </a>
-            <div class="desc">More than a month</div>
+            <div class="desc">Upto 15 days</div>
           </div>
 
           <div class="img">
             <a target="_blank" href="train.jpg">
-              <img src="{% static 'images/to.jpg' %}" alt="Rock" width="300" height="200">
+              <img src="{% static 'images/rock.jpg' %}" alt="Rock" width="300" height="200">
             </a>
-            <div class="desc">Lifespan</div>
+            <div class="desc">Upon Cancellation</div>
           </div>
 
          <!-- <div class="row placeholders">
@@ -132,7 +132,7 @@
 			  <textarea class="form-control" rows="5" id="comment"></textarea>
 			</div>
 			<div align="center">
-				<button class="button" onclick="window.location.href='/home' "><span>Submit</span></button>
+				<button class="button" onclick="window.location.href='/home' " style="font-size: 15px;"><span>Send Request</span></button>
         	</div>
         </div>
       </div>

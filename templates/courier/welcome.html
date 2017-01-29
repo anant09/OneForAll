@@ -2,15 +2,44 @@
 {% block title %}Courier{% endblock %}
 {% block head %}Courier{% endblock %}
 {% block content %}
+<body>
+{% load static %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home/">Smuggler</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/home/">Home</a></li>
+            <li><a href="#">Contact Info</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right"
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br/><br/><br/><br/><br/>
+    <div align="center">
     <form class="form" method="post" action="/courier/about/" >{% csrf_token %}
-        <input type="text" placeholder="Weight of item" name="weight">
-        <input type="text" placeholder="Approx Height" name="height">
-        <input type="text" placeholder="Approx Width" name="width">
-        <input type="text" placeholder="Approx Length" name="length">
-        <input type="text" placeholder="Courier from?" name="location_from">
-        <input type="text" placeholder="Deliver where?" name="location_to"> 
-        <button type="submit"  value="submit" id="add-button">Make Request</button>   
+        <input type="text" placeholder="Weight of item" name="weight"><br/><br/>
+        <input type="text" placeholder="Approx Height" name="height"><br/><br/>
+        <input type="text" placeholder="Approx Width" name="width"><br/><br/>
+        <input type="text" placeholder="Approx Length" name="length"><br/><br/>
+        <input type="text" placeholder="Courier from?" name="location_from"><br/><br/>
+        <input type="text" placeholder="Deliver where?" name="location_to"> <br/><br/>
+        <button class="button" type="submit"  value="submit" id="add-button"><span>Make Request</span></button>   
     </form>
-    <button type="button" onclick="window.location.href='/home/' ">Back</button>
+    <button class="button" type="button" onclick="window.location.href='/home/' "><span>Back</span></button>
+    </div>
 {% endblock %}
 

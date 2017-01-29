@@ -69,11 +69,12 @@ def delete_courier(request):
         couriers=[]
         dict = {}
         for items in Tracker.objects.filter(user=request.user.username):
-        	# print items
-        	couriers.append(Courier.objects.filter(id=items.courier_details)[0])
+        # print items
+          if Courier.objects.filter(id=items.courier_details)[0] != None:
+            couriers.append(Courier.objects.filter(id=items.courier_details)[0])
         print couriers
         dict['courier'] = couriers
-        	# print Courier.objects.filter(id=items.courier_details)
+        # print Courier.objects.filter(id=items.courier_details)
 
         return render(request,'tickets/delete_courier.html',context=dict)
 

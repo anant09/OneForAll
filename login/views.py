@@ -26,7 +26,7 @@ def register(request):
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
-            subject = 'Landbnb'
+            subject = 'Smuggler'
             message = 'Welcome and thank you for registering! Use link to verify e-mail'
             from_email = settings.EMAIL_HOST_USER
             to_list = [form.cleaned_data['email'],settings.EMAIL_HOST_USER]
