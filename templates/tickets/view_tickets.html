@@ -1,56 +1,93 @@
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+</style>
+</head>
 {% block content %}
 
         
-	<table>
+	<table class = "table table-hover" width=100px>
         <thead>
             <tr>
             	<th>Journey Id</th>
                 <th>Train PNR</th>
-                <th>Train number</th>
-                <th>Date of travel</th>
+                <th>Train Number</th>
+                <th>Date of Travel</th>
                 <th>Price</th>
                 <th>Train number </th>
                 <th>Delivery From</th>
-                <th>Destination(meters)</th>
-                <th>Confirm train number</th>
-
-                
+                <th>Delivery To</th>
+               	<th>Select</th>
             </tr>
         </thead>
 	<tbody>	  
-			
 				
 			{% for ticket in boldmessage %}
 				<tr>
-					
-				 	<td>         {{ticket.journey_id}} </td>
-					<td>		 {{ticket.train_no}} </td>
-					<td> 		 {{ticket.date}} </td>
-					<td>		 {{ticket.price}} </td>
-					<td>		 {{ticket.train_name}} </td>
-					<td>		 {{ticket.location_from}} </td>
-					<td>		 {{ticket.location_to}} </td>
-					<td> 		 {{ticket.user}}   		</td>
-							 						
+
+					<form action="/tickets/fetch_data/" method="POST">{% csrf_token %}
+				 	<td>{{ticket.journey_id}}</td>
+					<td>{{ticket.PNR}}</td>
+					<td>{{ticket.train_no}}</td>
+					<td>{{ticket.date}}</td>
+					<td>{{ticket.price}}</td>
+					<td>{{ticket.train_name}}</td>
+					<td>{{ticket.location_from}}</td>
+					<td>{{ticket.location_to}}</td>
+					<td align="left"><input type = "radio" name = "train" value = {{ticket.journey_id}}></td>
 				</tr>
 				
 			{% endfor %}
-			<form action="/tickets/fetch_data/" method="POST">{% csrf_token %}
-
-			<input type="text" placeholder="Journey Id" name="yolo" > 
-       
-       		<button type="submit"  value="submit" id="add-button">Make Request</button>	
-       
+      
 	</tbody>
 	</table>
-    
-    
-    
- <br/>
+	<div align=center>
+	<button type="submit"  value="submit" id="add-button" class="button button2"><span>Make Request</span></button><button type="button" onclick="window.location.href='/home/' " class = "button button4"><span>Back</span></button> 
+	</div>
 <br/>
-
-        
-    
-    <button type="button" onclick="window.location.href='/home/' ">Back</button>
+<br/>
 {% endblock %}

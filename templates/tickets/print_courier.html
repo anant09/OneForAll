@@ -1,27 +1,76 @@
-<table id="example" class="display nowrap" cellspacing="10" width="100%">
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+</style>
+</head>
+<table id="example" class="table table-hover">
         <thead>
             <tr>
-
                 <th>weight</th>
                 <th>height</th>
                 <th>width</th>
-                <th>length</th>
-                
+                <th>length</th>  
+                <th>select</th>
             </tr>
         </thead>
 	<tbody>	  
-			
-				
 			{% for courier in courier %}
 				<tr>
-				 	<td>         {{courier.weight}} </td>
-					<td>		 {{courier.height}} </td>
-					<td> 		 {{courier.width}} </td>
-					<td>		 {{courier.length}} </td>
-				</tr>
-				
+				 	<td>{{courier.weight}}</td>
+					<td>{{courier.height}}</td>
+					<td>{{courier.width}}</td>
+					<td>{{courier.length}}</td>
+					<td><input type="checkbox" name="cpackage" value={{courier.courier_id}}></button></td>
+				</tr>	
 			{% endfor %}
 	</tbody>
-	</table>
-    
+</table>
+<div align="center">
+<button type="submit"  value="submit" id="add-button" class="button button2" action=><span>Select Package</span></button>
+</div>
+  
     
