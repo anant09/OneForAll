@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from courier.models import *
 
 var = 1
 # Create your models here.
@@ -19,3 +20,10 @@ class Tickets(models.Model):
 		return self.train_name
 	
 # Create your models here.
+
+class Tracker(models.Model):
+	user = models.CharField(max_length=200)
+	courier_details= models.BigIntegerField()
+
+	def __str__(self):
+		return self.user

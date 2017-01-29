@@ -51,26 +51,27 @@
         <thead>
             <tr>
                 <th>weight</th>
-                <th>height</th>
-                <th>width</th>
-                <th>length</th>  
+                <th>Dimensions (in meters) </th>
+                
                 <th>select</th>
             </tr>
         </thead>
 	<tbody>	  
 			{% for courier in courier %}
 				<tr>
+          <form action="/tickets/fetch_courier/" method="POST">{% csrf_token %}
 				 	<td>{{courier.weight}}</td>
-					<td>{{courier.height}}</td>
-					<td>{{courier.width}}</td>
-					<td>{{courier.length}}</td>
-					<td><input type="checkbox" name="cpackage" value={{courier.courier_id}}></button></td>
+					<td>{{courier.height}} x {{courier.width}} x {{courier.length}}</td>
+				
+					<td><input type="checkbox" name="cpackage" value={{courier.id}}></input></td>
+         
 				</tr>	
 			{% endfor %}
 	</tbody>
 </table>
 <div align="center">
-<button type="submit"  value="submit" id="add-button" class="button button2" action=><span>Select Package</span></button>
+<button type="submit"  value="submit" id="add-button" class="button button2" ><span>Select Package</span></button>
+ </form>
 </div>
   
     

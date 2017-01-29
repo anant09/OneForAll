@@ -7,4 +7,5 @@ urlpatterns = [
 	# url(r'^viewcourier/(?P<loc_to>\w)/$', views.view_courier, name='view_courier'),
 	# url(r'^request_made/$', views.req_made, name='req_made'),
 	url(r'^fetch_data/',views.fetch_data, name='fetch_data'),
+	url(r'^fetch_courier/',views.fetch_couriers, name='fetch_couriers'),
 ]

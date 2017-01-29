@@ -35,8 +35,13 @@ def fetch_data(request):
 def fetch_couriers(request):
 	if request.method == 'POST':
 		checked = request.POST.getlist('cpackage')
-		print checked
+		
+		for items in checked:
+			q=Tracker(user=request.user.username,courier_details=items)
+			q.save()
+		return HttpResponseRedirect('/home/')
 
+		# q = Tracker(user =request.user.username,train_details=requ
 # def about(request):
 # 	# if this is a POST request we need to process the form data
 #     if request.method == 'POST':
