@@ -25,13 +25,14 @@ def fetch_data(request):
 	if request.method == 'POST':
 		journey = request.POST['train']
 		for items in Tickets.objects.filter(journey_id=journey):
-			print items
+			# print items
 			source = items.location_from
 			destination = items.location_to
 			couriers={'courier': Courier.objects.filter(location_from=source,location_to=destination)}
 			print couriers
 			return render(request,'tickets/print_courier.html',context=couriers)
 
+@login_required
 def fetch_couriers(request):
 	if request.method == 'POST':
 		checked = request.POST.getlist('cpackage')
@@ -40,6 +41,28 @@ def fetch_couriers(request):
 			q=Tracker(user=request.user.username,courier_details=items)
 			q.save()
 		return HttpResponseRedirect('/home/')
+
+@login_required
+def delete_courier(request):
+    if request.method=='POST':
+        print "post"
+        checked = request.POST.getlist('cpackage')
+        for items in checked:
+            Tracker.objects.filter(courier_details=items).delete()
+        return HttpResponseRedirect('/home')
+    else:
+        # dict={'courier':Tracker.objects.filter(user=request.user.username)}
+        couriers=[]
+        dict = {}
+        for items in Tracker.objects.filter(user=request.user.username):
+        	# print items
+        	couriers.append(Courier.objects.filter(id=items.courier_details)[0])
+        print couriers
+        dict['courier'] = couriers
+        	# print Courier.objects.filter(id=items.courier_details)
+
+        return render(request,'tickets/delete_courier.html',context=dict)
+
 
 		# q = Tracker(user =request.user.username,train_details=requ
 # def about(request):

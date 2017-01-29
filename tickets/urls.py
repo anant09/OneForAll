@@ -8,5 +8,5 @@ urlpatterns = [
 	# url(r'^request_made/$', views.req_made, name='req_made'),
 	url(r'^fetch_data/',views.fetch_data, name='fetch_data'),
 	url(r'^fetch_courier/',views.fetch_couriers, name='fetch_couriers'),
-	# url(r'^delete_courier/$', views.delete_courier, name='delete_courier'),
+	url(r'^delete_courier/$', views.delete_courier, name='delete_courier'),
 ]
