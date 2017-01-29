@@ -25,21 +25,58 @@ def fetch_data(request):
 	if request.method == 'POST':
 		journey = request.POST['train']
 		for items in Tickets.objects.filter(journey_id=journey):
-			print items
+			# print items
 			source = items.location_from
 			destination = items.location_to
 			couriers={'courier': Courier.objects.filter(location_from=source,location_to=destination)}
 			print couriers
 			return render(request,'tickets/print_courier.html',context=couriers)
 
+@login_required
 def fetch_couriers(request):
-	if request.method == 'POST':
-		checked = request.POST.getlist('cpackage')
-		
-		for items in checked:
-			q=Tracker(user=request.user.username,courier_details=items)
-			q.save()
-		return HttpResponseRedirect('/home/')
+        if request.method == 'POST':
+            checked = request.POST.getlist('cpackage')
+            for items in checked:
+                  q=Tracker(user=request.user.username,courier_details=items)
+                  for mi in Courier.objects.filter(id=items):
+                      em=[mi.user.email]
+                      print 'lalala '
+                      print em
+                      subject2='Courier Accepted'
+                      subject='Confirmation mail'
+                      message2='Your courier with the courier id '+ str(mi.id)+' has been accepted to be delivered.\n The tracking address will be provided soon'
+                      message='You have agreed to deliver courier of weight:-'+str(mi.weight)
+                      print message
+                      from_email = settings.EMAIL_HOST_USER
+                      to_list = [request.user.email]
+                      print "a aaaaaaaaaa"
+                      print to_list
+                      send_mail(subject,message,from_email,to_list,fail_silently = True)
+                      send_mail(subject2,message2,from_email,em,fail_silently=True)
+                  q.save()
+        return HttpResponseRedirect('/home/')
+
+@login_required
+def delete_courier(request):
+    if request.method=='POST':
+        print "post"
+        checked = request.POST.getlist('cpackage')
+        for items in checked:
+            Tracker.objects.filter(courier_details=items).delete()
+        return HttpResponseRedirect('/home  ')
+    else:
+        # dict={'courier':Tracker.objects.filter(user=request.user.username)}
+        couriers=[]
+        dict = {}
+        for items in Tracker.objects.filter(user=request.user.username):
+        	# print items
+        	couriers.append(Courier.objects.filter(id=items.courier_details)[0])
+        print couriers
+        dict['courier'] = couriers
+        	# print Courier.objects.filter(id=items.courier_details)
+
+        return render(request,'tickets/delete_courier.html',context=dict)
+
 
 		# q = Tracker(user =request.user.username,train_details=requ
 # def about(request):
