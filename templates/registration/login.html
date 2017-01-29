@@ -3,9 +3,6 @@
 {% block title %}Login{% endblock %}
 {% block head %}Login{% endblock %}
 {% block content %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
 
     <!--
     <form method="post" action=".">{% csrf_token %}
@@ -18,12 +15,48 @@
     </form>
     <a href="/register">Register</a>
 -->
+{% load static %}
+<body id="back" style="background: url('{{ STATIC_URL }}images/back2.jpg') ">
+  <div class="inner" style="background-image: url({% static 'images/back2.jpg' %})";>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home">Smuggler</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Info</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right"
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    {% if form.errors %}
+        <p align="center">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <div align="center">
     <form class="form" method="post" action="." >{% csrf_token %}
-        <input type="text" placeholder="Username" name="username">
-        <input type="password" placeholder="Password" name="password">
-        <button type="submit"  value="Login" id="login-button">Login</button>
-        <button type="button" onclick="window.location.href='/register/' ">Register</button>
+        <input id="usr3" type="text" placeholder="Username" name="username">
+        <br/><br/>
+        <input id="usr3" type="password" placeholder="Password" name="password">
+        <br/><br/>
+        <button type="submit"  class="button" value="Login" id="login-button">Login</button>
+        <button type="button" class="button" onclick="window.location.href='/register/' ">Register</button>
         <input type="hidden" name="next" value="/home" />
     </form>
+    </div>
+    </div>
 
 {% endblock %}

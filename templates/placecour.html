@@ -1,0 +1,140 @@
+<!-- home.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+{% load static %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home">Smuggler</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Info</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right"
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+		
+
+    <div class="container-fluid">
+    
+      <br/><br/><br/>
+      <div align="center"> 
+      	<h3 class="page-header">Pickup point</h3>
+
+      	<img id="loc" src="{% static 'images/from.jpg' %}" class="img-rounded" alt="Cinque Terre" width="304" height="236">
+      	<div class="form-group">
+		  <label for="usr" id="pwd">Address 1:</label>
+		  <input type="text" class="form" id="usr">
+		</div>
+		<br/><br/>
+		<div class="form-group">
+		  <label for="pwd" id="pwd">Address 2:</label>
+		  <input type="password" class="form" id="usr">
+		</div>
+		<br/><br/>
+		<div class="form-group">
+		  <label for="pwd" id="pwd">Pincode:</label>
+		  <input type="password" class="form" id="usr">
+		</div>
+	  </div>
+      <br/><br/><br/><br/>
+      <div align="center"> 
+      	<h3 class="page-header">Drop point</h3>
+      	<img id="loc2" src="{% static 'images/from.jpg' %}" class="img-rounded" alt="Cinque Terre" width="304" height="236">
+      	<div class="form-group">
+		  <label for="usr" id="pwd2">Address 1:</label>
+		  <input type="text" class="form" id="usr2">
+		</div>
+		<br/><br/>
+		<div class="form-group">
+		  <label for="pwd2" id="pwd">Address 2:</label>
+		  <input type="password" class="form" id="usr2">
+		</div>
+		<br/><br/>
+		<div class="form-group">
+		  <label for="pwd" id="pwd2">Pincode:</label>
+		  <input type="password" class="form" id="usr2">
+		</div>
+	  </div>
+
+	  <br/><br/><br/><br/>
+          <h2 class="page-header">Service mode</h2>
+          <div class="img">
+            <a target="_blank" href="fjords.jpg">
+              <img src="{% static 'images/cheetah.jpg' %}" alt="Cheetah" width="300" height="200">
+            </a>
+            <div class="desc">Within a week</div>
+          </div>
+
+          <div class="img">
+            <a target="_blank" href="forest.jpg">
+              <img src="{% static 'images/rabbit.jpg' %}" alt="Rabbit" width="300" height="200">
+            </a>
+            <div class="desc">Within 2-4 Weeks</div>
+          </div>
+
+          <div class="img">
+            <a target="_blank" href="lights.jpg">
+              <img src="{% static 'images/from.jpg' %}" alt="Turtle" width="300" height="200">
+            </a>
+            <div class="desc">More than a month</div>
+          </div>
+
+          <div class="img">
+            <a target="_blank" href="train.jpg">
+              <img src="{% static 'images/to.jpg' %}" alt="Rock" width="300" height="200">
+            </a>
+            <div class="desc">Lifespan</div>
+          </div>
+
+         <!-- <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'images/cheetah.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Cheetah</h4>
+              <span class="text-muted">Within a week</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="{% static 'images/rabbit.jpg' %}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Rabbit</h4>
+              <span class="text-muted">Within 2-4 Weeks</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Turtle</h4>
+              <span class="text-muted">More than a month</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Rock</h4>
+              <span class="text-muted">Lifespan</span>
+            </div>
+          </div>
+          -->
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+           <h2 class="page-header">Package Description</h2>
+           <div class="form-group">
+			  <label for="comment">Details:</label>
+			  <textarea class="form-control" rows="5" id="comment"></textarea>
+			</div>
+			<div align="center">
+				<button class="button" onclick="window.location.href='/home' "><span>Submit</span></button>
+        	</div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
