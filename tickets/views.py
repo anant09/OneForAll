@@ -16,11 +16,11 @@ from django.contrib.auth.decorators import login_required
 
     
     
-    
+@login_required 
 def view_all(request):
     all_tickets={'boldmessage': Tickets.objects.all() }
     return render(request,'tickets/view_tickets.html',context=all_tickets)
-    
+@login_required   
 def fetch_data(request):
 	if request.method == 'POST':
 		journey=request.POST['yolo']

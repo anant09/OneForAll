@@ -23,7 +23,7 @@
 				
 			{% for ticket in boldmessage %}
 				<tr>
-					<form action="/tickets/fetch_data/" method="POST">{% csrf_token %}
+					
 				 	<td>         {{ticket.journey_id}} </td>
 					<td>		 {{ticket.train_no}} </td>
 					<td> 		 {{ticket.date}} </td>
@@ -36,6 +36,7 @@
 				</tr>
 				
 			{% endfor %}
+			<form action="/tickets/fetch_data/" method="POST">{% csrf_token %}
 
 			<input type="text" placeholder="Journey Id" name="yolo" > 
        

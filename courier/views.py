@@ -15,12 +15,12 @@ from django.contrib.auth.decorators import login_required
 
     
     
-    
+@login_required    
 def req_made(request):
     context_dict={'boldmessage': Courier.objects.all() }
     return render(request,'courier/request_made.html',context=context_dict)
     
-    
+@login_required   
 def about(request):
 	# if this is a POST request we need to process the form data
     if request.method == 'POST':

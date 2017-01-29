@@ -59,3 +59,9 @@ def home(request):
     'home.html',
     { 'user': request.user }
     )
+
+def fakehome(request):
+    return render_to_response(
+    'fakehome.html',
+    {}
+    )

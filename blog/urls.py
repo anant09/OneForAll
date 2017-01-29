@@ -25,7 +25,8 @@ from tickets import urls as tickets_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', 'django.contrib.auth.views.login'),
+    url(r'^$',fakehome),
+    url(r'^log/$', 'django.contrib.auth.views.login'),
     url(r'^home/$', home),
     url(r'^register/$', register),
     url(r'^register/success/$', register_success),
